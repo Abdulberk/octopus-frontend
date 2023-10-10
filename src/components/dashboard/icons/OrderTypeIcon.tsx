@@ -24,6 +24,8 @@ const Notification = (props: React.SVGProps<SVGSVGElement>
   </svg>
 );
 
+export default Notification;
+
 
 
 

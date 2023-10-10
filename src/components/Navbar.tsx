@@ -1,4 +1,4 @@
-import React from 'react';
+
 import SearchIcon from './dashboard/icons/SearchIcon';
 import MyProfileIcon from './MyProfileIcon';
 import NotificationIcon from './NotificationsIcon';

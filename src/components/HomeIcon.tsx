@@ -1,5 +1,5 @@
-import * as React from "react";
-import {memo} from "react";
+
+
 
 interface HomeIconProps {
     selected?: boolean;
@@ -45,4 +45,4 @@ const HomeIcon = ({selected, ...props}:HomeIconProps) => (
     </defs>
   </svg>
 );
-export default memo(HomeIcon);
+export default HomeIcon;

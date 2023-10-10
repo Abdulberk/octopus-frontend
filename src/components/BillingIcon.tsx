@@ -1,5 +1,3 @@
-import * as React from "react";
-import {memo} from "react";
 
 interface BillingIconProps {
     selected?: boolean;
@@ -49,4 +47,4 @@ const BillingIcon = ({
     </defs>
   </svg>
 );
-export default memo(BillingIcon);
+export default BillingIcon;

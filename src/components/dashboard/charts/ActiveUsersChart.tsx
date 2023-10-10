@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { ChartOptions} from 'chart.js/auto';
 
 
 ChartJS.register(
@@ -22,32 +23,23 @@ ChartJS.register(
 
 
 
-export const options = {
+const options: ChartOptions<'bar'> = {
   responsive: true,
   maintainAspectRatio: false,
-
   scales: {
     x: {
       grid: {
         display: false,
-        drawBorder: false,
-      
       },
       ticks: {
         display: false,
-        stepSize: 1, 
-        
-
+        stepSize: 1,
       },
       offset: true,
     },
     y: {
       grid: {
         display: false,
-        drawBorder: false,
-    
-
-
       },
       ticks: {
         display: true,
@@ -55,34 +47,26 @@ export const options = {
         stepSize: 100,
         font: {
           size: 10,
-          weight: 700,
+          weight: 'bold',
           family: 'Helvetica',
-          
-
         },
-
-
       },
     },
   },
   plugins: {
     legend: {
-     
       display: false,
     },
     title: {
       display: false,
-
-    
     },
-
   },
   layout: {
     padding: 0,
   },
 };
 
-const labels = ['1', '2', '3', '4', '5', '6', '7', '8']; 
+const labels = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
 export const data = {
   labels,

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AuthorsTable from '../components/tables/AuthorsTable'
 import { SampleAuthors } from './Dashboard'
 import CompanyIcon from '../components/tables/icons/CompanyIcons'

@@ -77,7 +77,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         <div className = "flex flex-col items-start justify-start gap-y-[9px]">
           <h1 className="text-[#4FD1C5] text-[32px] font-bold leading-[130%] font-['Helvetica']">Welcome Back</h1>
           <p className="text-[#A0AEC0] text-[14px] font-bold leading-[140%] font-['Helvetica']">Enter your email and password to sign in</p>
-          
+            <p className="text-[#F56565] text-[14px] font-bold leading-[140%] font-['Helvetica']">{error}</p>
           </div>
           <span className="text-[#F56565] text-[14px] font-bold leading-[140%] font-['Helvetica'] h-9 w-full text-center"  ></span>
           <div className = "pl-[5px] flex flex-col justify-start items-start gap-y-6">

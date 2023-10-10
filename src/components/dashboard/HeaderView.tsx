@@ -1,4 +1,4 @@
-import React from 'react'
+
 import MiniCard from './MiniCard'
 import type { MiniCardProps } from './MiniCard'
 import CartIcon from './icons/CartIcon'

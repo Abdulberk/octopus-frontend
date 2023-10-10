@@ -15,8 +15,7 @@ export const MiniCard = ({
     rate
 }:MiniCardProps) => {
 
-  const downColor = "#E53E3E"
-  const upColor = "#48BB78"
+
 
   return (
     <div className = " w-auto flex-1 h-[80px] rounded-[15px] shadow-activeListItem bg-[#FFF] flex flex-row pl-[21.5px] pr-[17.5px] justify-between items-center font-['Helvetica'] " >

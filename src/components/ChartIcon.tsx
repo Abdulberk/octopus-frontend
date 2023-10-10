@@ -1,5 +1,3 @@
-import * as React from "react";
-import {memo} from "react";
 
 
 interface ChartIconProps {
@@ -54,4 +52,4 @@ const ChartIcon = ({
     />
   </svg>
 );
-export default memo(ChartIcon);
+export default ChartIcon;

@@ -1,10 +1,10 @@
-import React from 'react';
+
 import AuthNavbar from '../components/AuthNavbar';
 import LoginForm from '../components/login/LoginForm';
 
 const Login = () => {
 
-  
+
   return (
     <div className="w-full min-h-screen flex items-start justify-start relative">
       <div className = "absolute top-6 z-[999999] translate-x-1/2" >

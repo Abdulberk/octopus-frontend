@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+
 import HeaderView from '../components/dashboard/HeaderView';
 import OctopusIconSet from '../components/dashboard/icons/OctopusIconSet';
 import SalesOverviewChart from '../components/dashboard/charts/SalesOverviewChart';
@@ -9,9 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import { RowData } from '../types/TableTypes';
 import { SampleProjects } from './Tables';
 import ProjectsTable from '../components/tables/ProjectsTable';
-import {useQuery,useQueryClient} from 'react-query'
-import { getProjects } from '../api/projectsApi';
+//import {useQuery,useQueryClient} from 'react-query'
+//import { getProjects } from '../api/projectsApi';
 import OrdersOverview from '../components/dashboard/OrdersOverview';
+import { useEffect } from 'react';
 
 
 export const SampleAuthors = [

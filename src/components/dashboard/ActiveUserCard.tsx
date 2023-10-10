@@ -1,4 +1,4 @@
-import React from 'react';
+
 import CartIcon from './icons/CartIcon';
 import ProgressBar from '../ProgressBar';
 import WalletIcon from './icons/WalletIcon';
