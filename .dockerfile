@@ -1,6 +1,6 @@
 FROM node:14-alpine AS builder
 
-ARG BASE_URL=BASE_URL=https://octopus-backend-g4ohfsy77-abdulberk.vercel.app
+ARG BASE_URL=https://octopus-backend-g4ohfsy77-abdulberk.vercel.app
 
 
 # Add a work directory
