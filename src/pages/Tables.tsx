@@ -4,6 +4,11 @@ import { SampleAuthors } from './Dashboard'
 import CompanyIcon from '../components/tables/icons/CompanyIcons'
 import ProjectsTable from '../components/tables/ProjectsTable'
 import { RowData } from '../types/TableTypes'
+import {useQuery} from 'react-query'
+import { getProjects } from '../api/projectsApi'
+import { useEffect, useState } from 'react'
+import {GridLoader} from 'react-spinners'
+
 
 export const SampleProjects = [
     {
@@ -58,9 +63,55 @@ export const SampleProjects = [
 
 ] as RowData[]
 
-export const Tables = () => {
 
-   
+interface Project {
+    id?: number;
+    title?: string;
+    description?: string;
+    price?: number;
+    brand?: string;
+    category?: string;
+    company?: string;
+    thumbnail?: string;
+    images?: string[];
+    completion: number;
+    budget: number;  
+}
+
+
+
+
+export const Tables = () => {
+    const [projects, setProjects] = useState<RowData[]>(SampleProjects);
+    const { data, isLoading, isError,error } = useQuery<Project[]>('projects', getProjects);
+
+    useEffect(() => {
+        if (!isError && !isLoading && data) {
+            const updatedProjects: RowData[] = data?.map((project) => ({
+                id: project.id,
+                company: project.title,
+                icon: <CompanyIcon type = "xd"/>,
+                status: "done",
+                completion: 70,
+                budget: project.price
+
+            }));
+            setProjects(updatedProjects);
+        }
+    }, [data, isLoading, isError]);
+    
+    if (isLoading) {
+        return (
+            <div className = "flex justify-center items-center w-full h-full">
+                <GridLoader color = "#4FD1C5" size = {30} />
+            </div>
+        )
+    }
+    
+    if (isError) {
+        console.log(error)
+        return <div>Error loading data from the server.</div>;
+    }
 
 
   return (
@@ -72,7 +123,7 @@ export const Tables = () => {
           
         </div>
         <div  className = " h-[453.5px] rounded-[15px] shadow-activeListItem bg-white pl-[21.5px] pr-[22.5px] pt-[28px] pb-[28px] w-full overflow-auto" >
-                <ProjectsTable  projects={SampleProjects} />
+                <ProjectsTable  projects={projects} />
 
         </div>
 

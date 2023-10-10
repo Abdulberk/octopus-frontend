@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = "https://octopus-backend-g4ohfsy77-abdulberk.vercel.app"
 
 const projectsInstance = axios.create({
-    baseURL: `${baseUrl}/projects`,
+    baseURL: `${baseUrl}/get-projects`,
     });
 
 
@@ -22,6 +22,6 @@ const projectsInstance = axios.create({
 
     export const getProjects = async() => {
         const response = await projectsInstance.get('/');
-        return response.data;
+        return response.data.projects;
         
     };
