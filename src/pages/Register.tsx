@@ -37,7 +37,7 @@ return (
    
     <div className="min-h-[120vh] flex flex-col items-center relative p-6">
 
-    <div className="h-[520.5px] w-full bg-cover bg-center rounded-[15px]" style={{ backgroundImage: 'url(src/assets/register-cover.png)' }}>
+    <div className="h-[520.5px] w-full bg-cover bg-center rounded-[15px] bg-registerCover" >
 
 </div>
 
