@@ -43,10 +43,16 @@ interface MenuItemProps {
 
   }
 
+/*   pt-[${mode === 'light' ? '17.5px' : '0'}] pb-[${mode === 'light' ? '17.5px' : '0'}] */
+
 
 const AuthNavbar = ({mode,bg,labelsColor,color}:AuthNavbarProps) => {
   return (
-    <nav className={`pl-[69px] pr-6 pt-[${mode === 'light' ? '17.5px' : '0'}] pb-[${mode === 'light' ? '17.5px' : '0'}] w-auto min-w-[987.5px] rounded-[15px] ${mode === "light" ? 'border-[1.5px] border-white shadow-authNavbar backdrop-blur-[10.500000953674316px]' : ''} h-[${
+    <nav style = {{
+     paddingTop: `${mode === 'light' ? '17.5px' : '0'}`,
+      paddingBottom: `${mode === 'light' ? '17.5px' : '0'}`,
+      
+    }} className={`pl-[69px] pr-6  w-auto min-w-[987.5px] rounded-[15px] ${mode === "light" ? 'border-[1.5px] border-white shadow-authNavbar backdrop-blur-[10.500000953674316px]' : ''} h-[${
       mode === 'light' ? '70px' : 'auto'}]  ${bg ? 'bg-[linear-gradient(113deg,_#ffffffd1_0%,_#ffffffcc_110.84%)]' : 'bg-transparent'}`}>
       <div className="h-auto w-full flex flex-row justify-between items-center">
         <div className="w-auto h-auto max-w-[169.5px] max-h-[32.5px] flex justify-center items-center">
