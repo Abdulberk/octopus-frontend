@@ -43,7 +43,6 @@ interface MenuItemProps {
 
   }
 
-/*   pt-[${mode === 'light' ? '17.5px' : '0'}] pb-[${mode === 'light' ? '17.5px' : '0'}] */
 
 
 const AuthNavbar = ({mode,bg,labelsColor,color}:AuthNavbarProps) => {
@@ -51,7 +50,7 @@ const AuthNavbar = ({mode,bg,labelsColor,color}:AuthNavbarProps) => {
     <nav style = {{
      paddingTop: `${mode === 'light' ? '17.5px' : '0'}`,
       paddingBottom: `${mode === 'light' ? '17.5px' : '0'}`,
-      
+
     }} className={`pl-[69px] pr-6  w-auto min-w-[987.5px] rounded-[15px] ${mode === "light" ? 'border-[1.5px] border-white shadow-authNavbar backdrop-blur-[10.500000953674316px]' : ''} h-[${
       mode === 'light' ? '70px' : 'auto'}]  ${bg ? 'bg-[linear-gradient(113deg,_#ffffffd1_0%,_#ffffffcc_110.84%)]' : 'bg-transparent'}`}>
       <div className="h-auto w-full flex flex-row justify-between items-center">

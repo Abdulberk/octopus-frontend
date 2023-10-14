@@ -8,7 +8,7 @@ import {useQuery} from 'react-query'
 import { getProjects } from '../api/projectsApi'
 import { useEffect, useState } from 'react'
 import {GridLoader} from 'react-spinners'
-
+import type { CompanyIconProps } from '../components/tables/icons/CompanyIcons'
 
 export const SampleProjects = [
     {
@@ -85,20 +85,41 @@ export const Tables = () => {
     const [projects, setProjects] = useState<RowData[]>(SampleProjects);
     const { data, isLoading, isError,error } = useQuery<Project[]>('projects', getProjects);
 
+
+    const getRandomIcon = () => {
+        const randomIcons:CompanyIconProps['type'][] = ['atlassian', 'xd', 'slack', 'spotify', 'jira', 'invision'];
+        return randomIcons[Math.floor(Math.random() * randomIcons.length)]; 
+      }
+
+
+      
+      const getProjectIcon = (project:Project) => {
+        if (project.thumbnail) {
+          return (
+            <div className="flex justify-center items-center w-5 h-5 object-cover">
+              <img src={project.thumbnail} alt="none" />
+            </div>
+          );
+        } 
+        
+          return <CompanyIcon type={getRandomIcon()} />;
+        
+      };
+
     useEffect(() => {
         if (!isError && !isLoading && data) {
             const updatedProjects: RowData[] = data?.map((project) => ({
                 id: project.id,
                 company: project.title,
-                icon: <CompanyIcon type = "xd"/>,
-                status: "done",
-                completion: 70,
+                icon: getProjectIcon(project),
+                status: Math.random() > 0.5 ? "working" : "done",
+                completion: Math.floor(Math.random() * 100),
                 budget: project.price
 
             }));
             setProjects(updatedProjects);
         }
-    }, [data, isLoading, isError]);
+    }, [data, isLoading, isError, error]);
     
     if (isLoading) {
         return (

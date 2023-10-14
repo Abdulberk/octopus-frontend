@@ -251,7 +251,7 @@ const InvisionIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 
     
-interface CompanyIconProps {
+export interface CompanyIconProps {
     type: `xd` | `atlassian` | `spotify` | `slack` | `jira` | `invision`
 }
 
