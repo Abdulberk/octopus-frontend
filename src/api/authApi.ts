@@ -21,11 +21,7 @@ export const login = async (data: { email: string; password: string }) => {
     } catch (error) {
         if (axios.isAxiosError(error)) {
             const err = error as AxiosError<ErrorResponse>;
-            if (err.response?.status === 401) {
-                localStorage.removeItem('token');
-                window.location.href = '/login';
-            }
-            throw new Error(err.response?.data?.message || 'Bilinmeyen bir hata oluştu');
+            errorHandler(err);
         }
         throw new Error('Bilinmeyen bir hata oluştu');
     }
@@ -40,6 +36,23 @@ type CustomAxiosError<T> = {
     response?: AxiosResponse<T>; 
 } & AxiosError;
 
+
+const errorHandler = (error: AxiosError<ErrorResponse>) => {
+    if (error.response?.status === 401) {
+        localStorage.removeItem('token');
+        window.location.href = '/login';
+    }
+
+    if (error.response?.status === 403) {
+        window.location.href = '/403';
+    }
+    
+
+    throw new Error(error.response?.data?.message || 'Bilinmeyen bir hata oluştu');
+}
+
+
+
 export const me = async () => {
     try {
         const response = await authInstance.get('/me');
@@ -47,11 +60,7 @@ export const me = async () => {
     } catch (error) {
         if (axios.isAxiosError(error)) {
             const err = error as CustomAxiosError<ErrorResponse>;
-            if (err.response?.status === 401) {
-                localStorage.removeItem('token');
-                window.location.href = '/login';
-            }
-            throw new Error(err.response?.data?.message || 'Bilinmeyen bir hata oluştu');
+            errorHandler(err);
         }
         throw new Error('Bilinmeyen bir hata oluştu');
     }
