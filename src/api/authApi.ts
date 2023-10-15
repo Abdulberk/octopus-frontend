@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = "https://octopus-backend-g4ohfsy77-abdulberk.vercel.app"
+const baseUrl = import.meta.env.VITE_BASE_URL || "https://octopus-backend-h8l8jrg13-abdulberk.vercel.app"
 
 const authInstance = axios.create({
     baseURL: `${baseUrl}/auth`,
@@ -26,3 +26,9 @@ const authInstance = axios.create({
 
     
 
+     export const me = async() => {
+            return authInstance.get('/me');
+     }
+
+
+    
