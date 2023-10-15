@@ -89,7 +89,7 @@ const ActiveUserCard = ({ title, value }: ActiveUserCardProps) => {
       <span className="pl-[1px] w-full">
         <ProgressBar value={
           calculateProgressValue(value, title.toLowerCase())
-        } showPercentage = {false}/>
+        } showPercentage = {false} width={100}/>
       </span>
     </div>
   );

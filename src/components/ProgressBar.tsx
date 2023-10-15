@@ -39,7 +39,10 @@ const ProgressBar = ({
         </label>
       )}
       <div
-        className={`w-[${actualWidth}px] bg-[#E2E8F0] rounded-full h-[3px]`}
+        className={`bg-[#E2E8F0] rounded-full h-[3px]`}
+        style = {{
+          width: `${actualWidth}px`
+        }}
       >
         <div
           style={{
