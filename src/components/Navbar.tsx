@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
+import Breadcrumbs from "./Breadcrumbs";
 
 interface User {
   message: string;
@@ -39,6 +40,8 @@ const Navbar = () => {
   const { data, isLoading, isError, error, isSuccess } = useQuery("me", me);
   const [user, setUser] = useState<User | null>(null);
 
+
+
   useEffect(() => {
     console.log(data);
     if (isSuccess) {
@@ -53,10 +56,20 @@ const Navbar = () => {
     console.log(error);
   }
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
 
+
+  const getPageName = (pathname: string): string => {
+    const paths = pathname.split("/").filter((x) => x);
+    if (paths.length > 0) {
+      const lastPath = paths[paths.length - 1];
+     
+      return lastPath
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+    return "Home";
+  };
 
 
 
@@ -68,15 +81,18 @@ const Navbar = () => {
 
 
 
+  const currentPage = getPageName(window.location.pathname);
 
 
   return (
     <div className="flex flex-row h-[52px] w-full ">
-      <div className="flex-grow flex flex-col justify-end items-start">
-        <p className="text-[#2D3748] font-normal text-[12px]">
-          <span className="text-[#A0AEC0]">Pages</span> / Dashboard
-        </p>
-        <p className="text-[#2D3748] font-bold text-[14px]">Dashboard</p>
+      <div className="flex-grow flex flex-col justify-end items-start gap-y-[5.5px]">
+     
+          <Breadcrumbs />
+        
+        <p className="text-[#2D3748] font-bold text-[14px]">{
+          currentPage
+        }</p>
       </div>
 
       <div className=" w-auto flex flex-row gap-x-[18px] h-auto justify-start items-start ">
