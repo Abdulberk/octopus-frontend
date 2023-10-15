@@ -40,7 +40,7 @@ const Navbar = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    console.log(data); // Veriyi konsola yazdır
+    console.log(data);
     if (isSuccess) {
       setUser(data);
 
