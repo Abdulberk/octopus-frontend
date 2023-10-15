@@ -23,10 +23,13 @@ interface ListItemProps {
   icon: React.ReactNode | null;
   text?: string;
   link?: string;
+  onClick?: () => void;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ icon, text, link }) => (
-  <li className="w-auto h-auto flex justify-center items-center gap-x-1 text-[#718096] font-bold text-[12px] cursor-pointer hover:text-slate-800 ">
+const ListItem: React.FC<ListItemProps> = ({ icon, text, link,onClick }) => (
+  <li className="w-auto h-auto flex justify-center items-center gap-x-1 text-[#718096] font-bold text-[12px] cursor-pointer hover:text-slate-800 "
+  onClick={onClick}
+  >
     {icon}
     {link ? <Link to={link}>{text}</Link> : <p>{text}</p>}
   </li>
@@ -45,6 +48,17 @@ const Navbar = () => {
   if (isError) {
     console.log(error);
   }
+
+
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  }
+
+
+
+
 
   return (
     <div className="flex flex-row h-[52px] w-full">
@@ -93,7 +107,7 @@ const Navbar = () => {
                 />
                 <ListItem icon={<NotificationIcon />} />
                 <ListItem icon={<SettingsIcon />} />
-                <ListItem icon={null} text="Log Out" link="/logout" />
+                <ListItem icon={null} text="Log Out" onClick={logout} />
               </>
             ) : (
               <>
