@@ -5,7 +5,7 @@ import SettingsIcon from "./SettingsIcon";
 import { me } from "../api/authApi";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import Breadcrumbs from "./Breadcrumbs";
 
@@ -80,8 +80,8 @@ const Navbar = () => {
   }
 
 
-
-  const currentPage = getPageName(window.location.pathname);
+  const location = useLocation();
+  const currentPage = getPageName(location.pathname);
 
 
   return (
