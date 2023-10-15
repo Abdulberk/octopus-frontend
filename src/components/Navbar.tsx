@@ -37,13 +37,13 @@ const ListItem: React.FC<ListItemProps> = ({ icon, text, link,onClick }) => (
 
 const Navbar = () => {
   const [user, setUser] = useState<User | null>(null);
-  const { data, isLoading, isError, error } = useQuery("me", me);
+  const { data, isLoading, isError, error,isSuccess } = useQuery("me", me);
 
   useEffect(() => {
-    if (data && data.data.user) {
+    if (isSuccess && data) {
       setUser(data.data);
     }
-  }, [data]);
+  }, [data, isSuccess]);
 
   if (isError) {
     console.log(error);
@@ -61,7 +61,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="flex flex-row h-[52px] w-full">
+    <div className="flex flex-row h-[52px] w-full ">
       <div className="flex-grow flex flex-col justify-end items-start">
         <p className="text-[#2D3748] font-normal text-[12px]">
           <span className="text-[#A0AEC0]">Pages</span> / Dashboard
