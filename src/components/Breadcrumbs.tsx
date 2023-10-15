@@ -6,7 +6,12 @@ const Breadcrumbs = () => {
   const pathnames = location.pathname.split("/").filter((x) => x);
   const breadcrumbs = [{ path: "/dashboard", label: "Pages" }];
     const upperCase = (str: string) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+
+    return str
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
     }
 
 
