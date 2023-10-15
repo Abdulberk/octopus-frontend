@@ -7,7 +7,7 @@ import SyncLoader from "react-spinners/SyncLoader";
 import Switch from '../Switch';
 
 export const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
-export const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/; 
+export const passwordPattern = /^.{6,}$/;
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');

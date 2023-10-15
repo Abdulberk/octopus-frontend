@@ -5,14 +5,14 @@ import SalesOverviewChart from '../components/dashboard/charts/SalesOverviewChar
 import { ChartsHeader } from '../components/dashboard/charts/SalesOverviewChart';
 import ActiveUsersChart from '../components/dashboard/charts/ActiveUsersChart';
 import ActiveUserCard from '../components/dashboard/ActiveUserCard';
-import { useNavigate } from 'react-router-dom';
+
 import { RowData } from '../types/TableTypes';
 import { SampleProjects } from './Tables';
 import ProjectsTable from '../components/tables/ProjectsTable';
 //import {useQuery,useQueryClient} from 'react-query'
 //import { getProjects } from '../api/projectsApi';
 import OrdersOverview from '../components/dashboard/OrdersOverview';
-import { useEffect } from 'react';
+
 
 
 export const SampleAuthors = [
@@ -80,15 +80,6 @@ export const SampleAuthors = [
 
 const Dashboard = () => {
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate('/login');
-    }
-  }
-  ,[navigate]);
-  
 
   
 

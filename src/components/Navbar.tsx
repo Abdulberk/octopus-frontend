@@ -36,18 +36,28 @@ const ListItem: React.FC<ListItemProps> = ({ icon, text, link,onClick }) => (
 );
 
 const Navbar = () => {
+  const { data, isLoading, isError, error, isSuccess } = useQuery("me", me);
   const [user, setUser] = useState<User | null>(null);
-  const { data, isLoading, isError, error,isSuccess } = useQuery("me", me);
 
   useEffect(() => {
-    if (isSuccess && data) {
-      setUser(data.data);
+    console.log(data); // Veriyi konsola yazdır
+    if (isSuccess) {
+      setUser(data);
+
     }
   }, [data, isSuccess]);
+
+
 
   if (isError) {
     console.log(error);
   }
+
+  useEffect(() => {
+    console.log(user);
+  }, []);
+
+
 
 
 
